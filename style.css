@@ -1,0 +1,208 @@
+/* Salat — shared site styles. Auto light/dark via prefers-color-scheme.
+   Dark mirrors the app's calm deep-teal look; light is a warm ivory take. */
+
+:root {
+  --bg: #f4f6f5;
+  --bg-2: #eaefec;
+  --surface: #ffffff;
+  --hairline: rgba(20, 32, 30, 0.12);
+  --text: #14201e;
+  --text-2: #46635f;
+  --muted: #7b928d;
+  --accent: #1f8a80;
+  --accent-soft: rgba(31, 138, 128, 0.12);
+  --gold: #ba9e4a;
+  --card-shadow: 0 18px 44px rgba(16, 34, 31, 0.14);
+  --hero-glow: radial-gradient(60% 50% at 70% 10%, rgba(47, 163, 155, 0.16), transparent 70%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1417;
+    --bg-2: #101a1c;
+    --surface: #16211f;
+    --hairline: rgba(230, 241, 237, 0.12);
+    --text: #e6f1ed;
+    --text-2: #9fb8b2;
+    --muted: #64807b;
+    --accent: #4fc2b8;
+    --accent-soft: rgba(79, 194, 184, 0.14);
+    --gold: #d4ba72;
+    --card-shadow: 0 22px 54px rgba(0, 0, 0, 0.5);
+    --hero-glow: radial-gradient(60% 50% at 70% 10%, rgba(79, 194, 184, 0.12), transparent 70%);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font: 17px/1.65 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.serif { font-family: "New York", "Iowan Old Style", Georgia, "Times New Roman", serif; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Nav ---- */
+nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-inner {
+  display: flex; align-items: center; gap: 28px;
+  height: 60px;
+}
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
+.brand img { width: 30px; height: 30px; border-radius: 8px; }
+.brand:hover { text-decoration: none; }
+.nav-links { margin-left: auto; display: flex; gap: 22px; font-size: 15px; }
+.nav-links a { color: var(--text-2); }
+.nav-links a:hover { color: var(--accent); text-decoration: none; }
+
+/* ---- Hero ---- */
+header.hero {
+  position: relative;
+  padding: 84px 0 40px;
+  background: var(--hero-glow), linear-gradient(180deg, var(--bg-2), var(--bg));
+  overflow: hidden;
+}
+.hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; }
+.bismillah { color: var(--accent); font-size: 22px; margin-bottom: 18px; }
+h1.title {
+  font-size: clamp(44px, 6vw, 68px);
+  line-height: 1.06;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.tagline { margin-top: 18px; font-size: 21px; color: var(--text-2); max-width: 34ch; }
+.hero-ctas { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 24px; border-radius: 999px;
+  background: var(--accent); color: var(--bg);
+  font-weight: 600; font-size: 16px;
+}
+.btn:hover { text-decoration: none; filter: brightness(1.06); }
+.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--hairline); }
+.coming { font-size: 13px; color: var(--muted); }
+
+.free-line { margin-top: 22px; font-size: 14px; color: var(--muted); display: flex; gap: 16px; flex-wrap: wrap; }
+.free-line span { display: inline-flex; align-items: center; gap: 6px; }
+.free-line .dot { color: var(--accent); }
+
+/* ---- Phone frames ---- */
+.phone {
+  border-radius: 44px;
+  padding: 10px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.14), rgba(255,255,255,0.03));
+  border: 1px solid var(--hairline);
+  box-shadow: var(--card-shadow);
+  display: inline-block;
+}
+.phone img { display: block; width: 100%; border-radius: 36px; }
+.hero-phone { max-width: 320px; margin: 0 auto; transform: rotate(2.2deg); }
+
+/* ---- Sections ---- */
+section { padding: 78px 0; }
+section.alt { background: var(--bg-2); }
+.kicker {
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); font-weight: 700; margin-bottom: 14px;
+}
+h2 { font-size: clamp(30px, 4vw, 42px); font-weight: 600; line-height: 1.15; letter-spacing: -0.3px; }
+.lede { margin-top: 14px; color: var(--text-2); font-size: 19px; max-width: 62ch; }
+
+/* ---- Features ---- */
+.features {
+  margin-top: 44px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+}
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+  padding: 26px 24px;
+}
+.feature .icon {
+  width: 44px; height: 44px; border-radius: 13px;
+  background: var(--accent-soft); color: var(--accent);
+  display: grid; place-items: center; font-size: 21px;
+  margin-bottom: 16px;
+}
+.feature h3 { font-size: 19px; margin-bottom: 8px; font-weight: 600; }
+.feature p { color: var(--text-2); font-size: 15.5px; }
+
+/* ---- Screens ---- */
+.screens {
+  margin-top: 46px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+  align-items: start;
+}
+.screen { text-align: center; }
+.screen .phone { padding: 7px; border-radius: 34px; }
+.screen .phone img { border-radius: 28px; }
+.screen figcaption { margin-top: 14px; font-size: 14.5px; color: var(--text-2); }
+.screen figcaption strong { color: var(--text); display: block; font-size: 15.5px; margin-bottom: 2px; }
+
+/* ---- Mission ---- */
+.mission-card {
+  margin-top: 40px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 26px;
+  padding: 44px clamp(24px, 5vw, 56px);
+  box-shadow: var(--card-shadow);
+}
+.mission-card blockquote {
+  font-size: clamp(21px, 2.6vw, 27px);
+  line-height: 1.5;
+}
+.mission-card .who { margin-top: 22px; color: var(--muted); font-size: 15px; }
+.mission-card .who strong { color: var(--text-2); font-weight: 600; }
+
+/* ---- Footer ---- */
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 40px 0 56px;
+  color: var(--muted); font-size: 14.5px;
+}
+.foot { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+.foot .links { margin-left: auto; display: flex; gap: 20px; }
+.foot a { color: var(--text-2); }
+
+/* ---- Legal pages ---- */
+.doc { max-width: 760px; margin: 0 auto; padding: 64px 24px 90px; }
+.doc h1 { font-size: 38px; font-weight: 600; margin-bottom: 6px; }
+.doc .date { color: var(--muted); font-size: 14px; margin-bottom: 34px; }
+.doc h2 { font-size: 22px; margin: 38px 0 12px; }
+.doc p, .doc li { color: var(--text-2); }
+.doc ul { padding-left: 22px; margin: 12px 0; }
+.doc li { margin: 8px 0; }
+.doc strong { color: var(--text); }
+.doc em { color: var(--text); }
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .tagline { margin-inline: auto; }
+  .hero-ctas { justify-content: center; }
+  .free-line { justify-content: center; }
+  .hero-phone { margin-top: 34px; transform: none; }
+  .features { grid-template-columns: 1fr 1fr; }
+  .screens { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .features { grid-template-columns: 1fr; }
+  .screens { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
