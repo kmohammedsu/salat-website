@@ -95,7 +95,7 @@ nav.scrolled .brand img { width: 32px; height: 32px; }
 /* ---- Hero ---- */
 header.hero {
   position: relative;
-  padding: 66px 0 72px;
+  padding: 66px 0 120px;
   background: var(--hero-glow), linear-gradient(180deg, var(--bg-2), var(--bg));
   overflow: hidden;
   text-align: center;
@@ -159,9 +159,9 @@ h1.title { animation-delay: 0.2s; }
 }
 .hero-fan .phone { animation: phone-in 1.2s var(--ease-out) both; }
 .fan-slot { display: block; }
-.fan-left  { transform: rotate(-7deg) translate(46px, 26px); z-index: 1; }
-.fan-right { transform: rotate(7deg) translate(-46px, 26px); z-index: 1; }
-.fan-center { z-index: 2; transform: translateY(6px); }
+.fan-left  { transform: rotate(-7deg) translate(46px, 12px); z-index: 1; }
+.fan-right { transform: rotate(7deg) translate(-46px, 12px); z-index: 1; }
+.fan-center { z-index: 2; transform: translateY(4px); }
 .fan-center .phone { animation-delay: 0.55s; }
 .fan-left .phone   { animation-delay: 0.75s; }
 .fan-right .phone  { animation-delay: 0.9s; }
@@ -480,17 +480,6 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 }
 .day-dots span.active { background: var(--accent); transform: scale(1.35); }
 
-/* ---- Statement (scroll-illuminated) ---- */
-.statement { padding: 20svh 0; }
-.statement p {
-  font-size: clamp(30px, 4.6vw, 56px);
-  line-height: 1.28; font-weight: 600; letter-spacing: -0.4px;
-  max-width: 22ch; margin: 0 auto; text-align: center;
-}
-.statement .w { opacity: 0.16; transition: opacity 0.35s var(--ease); }
-.statement .w.lit { opacity: 1; }
-.statement .w.accent.lit { color: var(--accent); }
-
 /* ---- Motion section ---- */
 #motion .phone { --pw: min(290px, 72vw); margin-top: 40px; }
 .motion-ctl {
@@ -515,9 +504,9 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 @media (max-width: 900px) {
   .hero-fan { min-height: 0; margin-top: 40px; align-items: flex-end; }
   .hero-fan .phone { --pw: 33vw; }
-  .fan-left  { transform: rotate(-8deg) translate(8vw, 14px); }
-  .fan-right { transform: rotate(8deg) translate(-8vw, 14px); }
-  .fan-center { transform: translateY(4px); }
+  .fan-left  { transform: rotate(-8deg) translate(8vw, 8px); }
+  .fan-right { transform: rotate(8deg) translate(-8vw, 8px); }
+  .fan-center { transform: translateY(2px); }
   .fan-center .phone { --pw: 41vw; }
   .day-phone { --pw: min(220px, 21svh); }
   .day-head h2 { font-size: 24px; }

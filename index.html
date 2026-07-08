@@ -32,6 +32,7 @@
       <a href="#themes">Themes</a>
       <a href="#features">Features</a>
       <a href="#mission">Why Salat</a>
+      <a href="demo.html">Demo</a>
       <a href="privacy-policy.html">Privacy</a>
       <a href="support.html">Support</a>
       <span class="chip">iPhone exclusive</span>
@@ -94,12 +95,6 @@
       </div>
       <div class="day-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span><span></span></div>
     </div>
-  </div>
-</section>
-
-<section class="statement" id="statement">
-  <div class="wrap">
-    <p class="serif" id="statementText">Most apps calculate a time. Salat shows the <span class="a">adhan,</span> <span class="a">iqamah,</span> and <span class="a">Jumu&rsquo;ah</span> your masjid actually follows. So you never miss the jama&rsquo;ah.</p>
   </div>
 </section>
 
@@ -176,16 +171,6 @@
       <figure class="t mid"><div class="phone"><img src="assets/nearby-navy.webp" alt="Nearby masjids in the Navy and Antique Gold theme" loading="lazy"></div><figcaption>Navy &amp; Antique Gold</figcaption></figure>
       <figure class="t"><div class="phone"><img src="assets/nearby-emerald.webp" alt="Nearby masjids in the Emerald Dusk theme" loading="lazy"></div><figcaption>Emerald Dusk</figcaption></figure>
     </div>
-  </div>
-</section>
-
-<section id="motion">
-  <div class="wrap center reveal">
-    <div class="kicker">Salat in motion <span class="ar serif" lang="ar" dir="rtl">شَاهِدْ</span></div>
-    <h2 class="serif">Feel the day glide by</h2>
-    <p class="lede">A real capture from the app: the prayer card gliding from Fajr to Isha, then flipping into its lesson. It plays while you&rsquo;re here and waits while you&rsquo;re not.</p>
-    <div class="phone"><video id="demoVideo" src="assets/demo.mp4" poster="assets/home.webp" muted loop playsinline preload="metadata" aria-label="Screen capture of Salat gliding through the day's prayer cards and flipping to the teaching face"></video></div>
-    <div><button class="motion-ctl" id="motionCtl" aria-label="Pause video">Pause</button></div>
   </div>
 </section>
 
@@ -348,17 +333,6 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal, .stagger").forEach((el) => io.observe(el));
 
-const stText = document.getElementById("statementText");
-stText.setAttribute("aria-label", stText.textContent.replace(/\s+/g, " ").trim());
-stText.innerHTML = stText.innerHTML.split(/(<span class="a">.*?<\/span>)/g).map(part => {
-  if (part.startsWith('<span class="a">')) {
-    const inner = part.replace('<span class="a">', "").replace("</span>", "");
-    return inner.split(" ").map(w => '<span class="w accent">' + w + "</span>").join(" ");
-  }
-  return part.split(" ").filter(Boolean).map(w => '<span class="w">' + w + "</span>").join(" ");
-}).join(" ");
-const stWords = [...stText.querySelectorAll(".w")];
-
 const heroCopy = document.getElementById("heroCopy");
 const heroFan = document.querySelector(".hero-fan");
 const fanL = document.querySelector(".fan-left"), fanR = document.querySelector(".fan-right"), fanC = document.querySelector(".fan-center");
@@ -415,9 +389,9 @@ function frame() {
     heroFan.style.transform = "translateY(" + (state.sy * -0.07) + "px)";
     if (window.innerWidth > 900) {
       const k = smooth(clamp01(state.sy / 620));
-      fanL.style.transform = "rotate(" + (-7 - 5 * k) + "deg) translate(" + (46 - 40 * k) + "px, " + (26 + 14 * k) + "px)";
-      fanR.style.transform = "rotate(" + (7 + 5 * k) + "deg) translate(" + (-46 + 40 * k) + "px, " + (26 + 14 * k) + "px)";
-      fanC.style.transform = "translateY(" + (6 - 6 * k) + "px)";
+      fanL.style.transform = "rotate(" + (-7 - 5 * k) + "deg) translate(" + (46 - 40 * k) + "px, " + (12 + 12 * k) + "px)";
+      fanR.style.transform = "rotate(" + (7 + 5 * k) + "deg) translate(" + (-46 + 40 * k) + "px, " + (12 + 12 * k) + "px)";
+      fanC.style.transform = "translateY(" + (4 - 4 * k) + "px)";
     } else {
       fanL.style.transform = fanR.style.transform = fanC.style.transform = "";
     }
@@ -434,13 +408,6 @@ function frame() {
     state.day += (fT - state.day) * (reduceMotion ? 1 : 0.11);
     if (Math.abs(fT - state.day) > 0.002) live = true; else state.day = fT;
     if (r.top < vh && r.bottom > 0) renderDay(state.day);
-  }
-
-  const sr = stText.getBoundingClientRect();
-  if (sr.bottom > 0 && sr.top < vh) {
-    const sp = clamp01((vh * 0.82 - sr.top) / (vh * 0.6));
-    const lit = Math.floor(sp * stWords.length);
-    stWords.forEach((w, j) => w.classList.toggle("lit", j < lit));
   }
 
   if (!reduceMotion) {
@@ -463,18 +430,6 @@ window.addEventListener("scroll", wake, { passive: true });
 window.addEventListener("resize", wake, { passive: true });
 wake();
 
-const vid = document.getElementById("demoVideo"), ctl = document.getElementById("motionCtl");
-let userPaused = false;
-new IntersectionObserver((es) => {
-  for (const e of es) {
-    if (e.isIntersecting) { if (!userPaused) vid.play().catch(() => {}); }
-    else vid.pause();
-  }
-}, { threshold: 0.35 }).observe(vid);
-ctl.addEventListener("click", () => {
-  if (vid.paused) { userPaused = false; vid.play().catch(() => {}); ctl.textContent = "Pause"; ctl.setAttribute("aria-label", "Pause video"); }
-  else { userPaused = true; vid.pause(); ctl.textContent = "Play"; ctl.setAttribute("aria-label", "Play video"); }
-});
 </script>
 </body>
 </html>
