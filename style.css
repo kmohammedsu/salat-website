@@ -95,7 +95,7 @@ nav.scrolled .brand img { width: 32px; height: 32px; }
 /* ---- Hero ---- */
 header.hero {
   position: relative;
-  padding: 66px 0 0;
+  padding: 66px 0 72px;
   background: var(--hero-glow), linear-gradient(180deg, var(--bg-2), var(--bg));
   overflow: hidden;
   text-align: center;
@@ -157,20 +157,24 @@ h1.title { animation-delay: 0.2s; }
   min-height: 460px;
   will-change: transform;
 }
-.hero-fan .phone { width: min(300px, 74vw); animation: phone-in 1.2s var(--ease-out) both; }
+.hero-fan .phone { animation: phone-in 1.2s var(--ease-out) both; }
 .fan-slot { display: block; }
-.fan-left  { transform: rotate(-7deg) translate(46px, 44px); z-index: 1; }
-.fan-right { transform: rotate(7deg) translate(-46px, 44px); z-index: 1; }
-.fan-center { z-index: 2; transform: translateY(12px); }
+.fan-left  { transform: rotate(-7deg) translate(46px, 26px); z-index: 1; }
+.fan-right { transform: rotate(7deg) translate(-46px, 26px); z-index: 1; }
+.fan-center { z-index: 2; transform: translateY(6px); }
 .fan-center .phone { animation-delay: 0.55s; }
 .fan-left .phone   { animation-delay: 0.75s; }
 .fan-right .phone  { animation-delay: 0.9s; }
 
-/* ---- iPhone frames ---- */
+/* ---- iPhone frames ----
+   True iPhone 16 Pro Max proportions: screens are 1320x2868 (ratio 0.4602).
+   All geometry derives from --pw so radius/padding scale with the phone. */
 .phone {
+  --pw: min(300px, 74vw);
+  width: var(--pw);
   position: relative;
-  border-radius: 56px;
-  padding: 13px;
+  border-radius: calc(var(--pw) * 0.172);
+  padding: calc(var(--pw) * 0.043);
   background: linear-gradient(165deg, #2c3033, #131617 34%, #0b0d0e 82%);
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
@@ -187,7 +191,11 @@ h1.title { animation-delay: 0.2s; }
   pointer-events: none;
   background: linear-gradient(100deg, transparent 20%, rgba(255,255,255,0.07) 47%, transparent 55%);
 }
-.phone img { display: block; width: 100%; border-radius: 43px; }
+.phone img, .phone video {
+  display: block; width: 100%;
+  aspect-ratio: 1320 / 2868; object-fit: cover;
+  border-radius: calc(var(--pw) * 0.129);
+}
 
 /* ---- Sections ---- */
 section { padding: 84px 0; }
@@ -210,7 +218,7 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.12; let
   align-items: center;
   padding: 56px 0;
 }
-.showcase .phone { width: min(330px, 80vw); justify-self: center; }
+.showcase .phone { --pw: min(330px, 80vw); justify-self: center; }
 .showcase.flip .shot { order: -1; }
 .showcase h3 { font-size: clamp(32px, 3.8vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -0.4px; }
 .showcase .kicker { margin-bottom: 12px; }
@@ -234,7 +242,7 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.12; let
   display: flex; justify-content: center; align-items: flex-end; gap: clamp(14px, 3vw, 34px);
   flex-wrap: wrap;
 }
-.themes-strip .phone { width: min(250px, 70vw); }
+.themes-strip .phone { --pw: min(250px, 70vw); }
 .themes-strip .t { text-align: center; }
 .themes-strip .t.mid { transform: translateY(-22px); }
 .themes-strip figcaption { margin-top: 12px; font-size: 14.5px; color: var(--text-2); }
@@ -421,7 +429,7 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 }
 
 /* ---- Day scrollytelling ---- */
-.day-scroll { height: 460svh; position: relative; }
+.day-scroll { height: 560svh; position: relative; }
 .day-sticky {
   position: sticky; top: 0; height: 100svh;
   display: flex; flex-direction: column;
@@ -438,16 +446,18 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 .day-head .kicker { justify-content: center; }
 .day-head h2 { font-size: clamp(28px, 3.6vw, 40px); }
 .day-phone {
+  --pw: min(266px, 25svh);
+  width: var(--pw);
+  aspect-ratio: 1320 / 2868;
+  height: auto;
   position: relative;
-  height: min(56svh, 560px);
-  aspect-ratio: 662 / 1439;
   will-change: transform;
   z-index: 2;
 }
 .day-phone .day-img {
-  position: absolute; inset: 13px;
-  width: calc(100% - 26px); height: calc(100% - 26px);
-  object-fit: cover; border-radius: 43px;
+  position: absolute; inset: calc(var(--pw) * 0.043);
+  width: auto; height: auto;
+  object-fit: cover; border-radius: calc(var(--pw) * 0.129);
   opacity: 0;
   will-change: opacity, transform;
 }
@@ -479,8 +489,17 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 .statement .w.lit { opacity: 1; }
 .statement .w.accent.lit { color: var(--accent); }
 
-/* ---- Hero demo video ---- */
-.phone video { display: block; width: 100%; border-radius: 43px; }
+/* ---- Motion section ---- */
+#motion .phone { --pw: min(290px, 72vw); margin-top: 40px; }
+.motion-ctl {
+  margin-top: 22px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px; border-radius: 999px;
+  background: transparent; border: 1px solid var(--hairline);
+  color: var(--text-2); font-size: 14px; cursor: pointer;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+.motion-ctl:hover { border-color: var(--accent); color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
@@ -493,17 +512,14 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 
 @media (max-width: 900px) {
   .hero-fan { min-height: 0; margin-top: 40px; align-items: flex-end; }
-  .hero-fan .phone { width: 33vw; border-radius: 34px; padding: 7px; }
-  .hero-fan .phone img { border-radius: 27px; }
-  .fan-left  { transform: rotate(-8deg) translate(8vw, 22px); }
-  .fan-right { transform: rotate(8deg) translate(-8vw, 22px); }
-  .fan-center { transform: translateY(8px); }
-  .fan-center .phone { width: 41vw; }
-  .day-phone { height: min(48svh, 480px); }
-  .day-phone .day-img { inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 27px; }
+  .hero-fan .phone { --pw: 33vw; }
+  .fan-left  { transform: rotate(-8deg) translate(8vw, 14px); }
+  .fan-right { transform: rotate(8deg) translate(-8vw, 14px); }
+  .fan-center { transform: translateY(4px); }
+  .fan-center .phone { --pw: 41vw; }
+  .day-phone { --pw: min(220px, 21svh); }
   .day-head h2 { font-size: 24px; }
-  .day-caption { min-height: 148px; }
-  .phone video { border-radius: 27px; }
+  .day-caption { min-height: 152px; }
   .statement p { max-width: 18ch; }
   .showcase { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
   .showcase .shot { order: -1; }
