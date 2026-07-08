@@ -64,20 +64,20 @@
 
     <div class="hero-fan">
       <div class="fan-slot fan-left"><div class="phone"><img src="assets/nearby-default.png" alt="Nearby masjids list comparing iqamah times" loading="eager"></div></div>
-      <div class="fan-slot fan-center"><div class="phone"><img src="assets/home.png" alt="Salat home screen showing the prayer card with the masjid's iqamah time" loading="eager"></div></div>
+      <div class="fan-slot fan-center"><div class="phone"><video src="assets/demo.mp4" poster="assets/home.png" autoplay muted loop playsinline aria-label="Live demo of Salat gliding through the day's prayer cards and flipping to the teaching face"></video></div></div>
       <div class="fan-slot fan-right"><div class="phone"><img src="assets/cardback.png" alt="Prayer card flipped to show rak'ah breakdown and the sunnah of the day" loading="eager"></div></div>
     </div>
   </div>
 </header>
 
 <section id="day">
-  <div class="wrap center reveal">
-    <div class="kicker">One day with Salat <span class="ar serif" lang="ar" dir="rtl">يَوْم مَعَ ٱلصَّلَاة</span></div>
-    <h2 class="serif">From dawn to night</h2>
-    <p class="lede">The card follows the sky. Keep scrolling and watch a single day pass at the Islamic Center of Redmond.</p>
-  </div>
   <div class="day-scroll" id="dayScroll">
     <div class="day-sticky">
+      <div class="day-glow" id="dayGlow" aria-hidden="true"></div>
+      <div class="day-head">
+        <div class="kicker">One day with Salat <span class="ar serif" lang="ar" dir="rtl">يَوْم مَعَ ٱلصَّلَاة</span></div>
+        <h2 class="serif">From dawn to night</h2>
+      </div>
       <div class="phone day-phone">
         <img class="day-img active" src="assets/home.png" alt="Fajr prayer card at dawn with the masjid's iqamah time">
         <img class="day-img" src="assets/day-dhuhr.png" alt="Dhuhr prayer card at midday" loading="lazy">
@@ -92,6 +92,12 @@
       </div>
       <div class="day-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
     </div>
+  </div>
+</section>
+
+<section class="statement" id="statement">
+  <div class="wrap">
+    <p class="serif" id="statementText">Most apps calculate a time. Salat shows the <span class="a">adhan,</span> <span class="a">iqamah,</span> and <span class="a">Jumu&rsquo;ah</span> your masjid actually follows. So you never miss the jama&rsquo;ah.</p>
   </div>
 </section>
 
@@ -330,42 +336,93 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".reveal, .stagger").forEach((el) => io.observe(el));
 
+const stText = document.getElementById("statementText");
+stText.innerHTML = stText.innerHTML.split(/(<span class="a">.*?<\/span>)/g).map(part => {
+  if (part.startsWith('<span class="a">')) {
+    const inner = part.replace('<span class="a">', "").replace("</span>", "");
+    return inner.split(" ").map(w => '<span class="w accent">' + w + "</span>").join(" ");
+  }
+  return part.split(" ").filter(Boolean).map(w => '<span class="w">' + w + "</span>").join(" ");
+}).join(" ");
+const stWords = [...stText.querySelectorAll(".w")];
+
 const heroCopy = document.getElementById("heroCopy");
 const heroFan = document.querySelector(".hero-fan");
+const fanL = document.querySelector(".fan-left"), fanR = document.querySelector(".fan-right"), fanC = document.querySelector(".fan-center");
 const dayScroll = document.getElementById("dayScroll");
-const dayImgs = dayScroll ? [...dayScroll.querySelectorAll(".day-img")] : [];
-const dayCaps = dayScroll ? [...dayScroll.querySelectorAll(".cap")] : [];
-const dayDots = dayScroll ? [...dayScroll.querySelectorAll(".day-dots span")] : [];
-let dayIdx = 0, ticking = false;
+const dayGlow = document.getElementById("dayGlow");
+const dayImgs = [...dayScroll.querySelectorAll(".day-img")];
+const dayCaps = [...dayScroll.querySelectorAll(".cap")];
+const dayDots = [...dayScroll.querySelectorAll(".day-dots span")];
+const showPhones = [...document.querySelectorAll(".showcase .phone")];
+const GLOW = [[126, 98, 176], [88, 146, 186], [206, 100, 62], [40, 58, 96]];
+let dayIdx = -1, ticking = false;
 
-function setDay(i) {
+const clamp01 = v => Math.min(1, Math.max(0, v));
+const smooth = t => t * t * (3 - 2 * t);
+
+function setDayLabel(i) {
   if (i === dayIdx) return;
   dayIdx = i;
-  dayImgs.forEach((el, j) => el.classList.toggle("active", j === i));
   dayCaps.forEach((el, j) => el.classList.toggle("active", j === i));
   dayDots.forEach((el, j) => el.classList.toggle("active", j === i));
 }
 
 function onFrame() {
   ticking = false;
-  const sy = window.scrollY;
+  const sy = window.scrollY, vh = window.innerHeight;
   navEl.classList.toggle("scrolled", sy > 24);
-  if (!reduceMotion && sy < window.innerHeight * 1.2) {
+
+  if (!reduceMotion && sy < vh * 1.25) {
     heroCopy.style.transform = "translateY(" + (sy * 0.22) + "px)";
     heroCopy.style.opacity = Math.max(0, 1 - sy / 640);
     heroFan.style.transform = "translateY(" + (sy * -0.07) + "px)";
+    if (window.innerWidth > 900) {
+      const k = smooth(clamp01(sy / 620));
+      fanL.style.transform = "rotate(" + (-7 - 5 * k) + "deg) translate(" + (46 - 40 * k) + "px, " + (44 + 16 * k) + "px)";
+      fanR.style.transform = "rotate(" + (7 + 5 * k) + "deg) translate(" + (-46 + 40 * k) + "px, " + (44 + 16 * k) + "px)";
+      fanC.style.transform = "translateY(" + (12 - 10 * k) + "px)";
+    } else {
+      fanL.style.transform = fanR.style.transform = fanC.style.transform = "";
+    }
   }
-  if (dayScroll) {
-    const r = dayScroll.getBoundingClientRect();
-    const total = r.height - window.innerHeight;
-    if (total > 0) {
-      const p = Math.min(0.999, Math.max(0, -r.top / total));
-      setDay(Math.floor(p * dayImgs.length));
+
+  const r = dayScroll.getBoundingClientRect();
+  const total = r.height - vh;
+  if (total > 0 && r.top < vh && r.bottom > 0) {
+    const p = clamp01(-r.top / total);
+    const f = Math.min(2.999, p * 3);
+    const i = Math.floor(f), t = smooth(f - i);
+    dayImgs.forEach((img, j) => {
+      if (j === i) { img.style.opacity = 1 - t; img.style.transform = "scale(" + (1 - 0.015 * t) + ")"; }
+      else if (j === i + 1) { img.style.opacity = t; img.style.transform = "scale(" + (1.03 - 0.03 * t) + ")"; }
+      else { img.style.opacity = 0; }
+    });
+    const a = GLOW[i], b = GLOW[Math.min(3, i + 1)];
+    dayGlow.style.setProperty("--glow",
+      Math.round(a[0] + (b[0] - a[0]) * t) + " " +
+      Math.round(a[1] + (b[1] - a[1]) * t) + " " +
+      Math.round(a[2] + (b[2] - a[2]) * t));
+    setDayLabel(Math.round(f));
+  }
+
+  const sr = stText.getBoundingClientRect();
+  const sp = clamp01((vh * 0.82 - sr.top) / (vh * 0.6));
+  const lit = Math.floor(sp * stWords.length);
+  stWords.forEach((w, j) => w.classList.toggle("lit", j < lit));
+
+  if (!reduceMotion) {
+    for (const ph of showPhones) {
+      const pr = ph.getBoundingClientRect();
+      if (pr.bottom < -80 || pr.top > vh + 80) continue;
+      const off = (pr.top + pr.height / 2 - vh / 2) / vh;
+      ph.style.transform = "translateY(" + (off * -30).toFixed(1) + "px)";
     }
   }
 }
 function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }
 window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", onScroll, { passive: true });
 onFrame();
 </script>
 </body>

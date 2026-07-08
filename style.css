@@ -212,22 +212,21 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.12; let
 }
 .showcase .phone { width: min(330px, 80vw); justify-self: center; }
 .showcase.flip .shot { order: -1; }
-.showcase h3 { font-size: clamp(26px, 3vw, 34px); font-weight: 600; line-height: 1.18; }
-.showcase .kicker { margin-bottom: 10px; }
-.showcase p { margin-top: 14px; color: var(--text-2); font-size: 17.5px; max-width: 46ch; }
-.showcase ul { margin-top: 18px; list-style: none; }
+.showcase h3 { font-size: clamp(32px, 3.8vw, 48px); font-weight: 600; line-height: 1.1; letter-spacing: -0.4px; }
+.showcase .kicker { margin-bottom: 12px; }
+.showcase p { margin-top: 18px; color: var(--text-2); font-size: 18.5px; max-width: 44ch; }
+.showcase ul { margin-top: 24px; list-style: none; }
 .showcase li {
-  margin: 10px 0; padding-left: 30px; position: relative;
-  color: var(--text-2); font-size: 16.5px;
+  margin: 13px 0; padding-left: 24px; position: relative;
+  color: var(--text-2); font-size: 17px; line-height: 1.6;
 }
 .showcase li::before {
-  content: "✓"; position: absolute; left: 0; top: 0;
-  width: 21px; height: 21px; border-radius: 7px;
-  background: var(--accent-soft); color: var(--accent);
-  font-size: 12.5px; font-weight: 700;
-  display: grid; place-items: center;
+  content: ""; position: absolute; left: 0; top: 0.62em;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
 }
-.showcase li strong { color: var(--text); }
+.showcase li strong { color: var(--text); font-weight: 600; }
+.showcase .phone { will-change: transform; }
 
 /* ---- Themes strip ---- */
 .themes-strip {
@@ -422,49 +421,73 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 }
 
 /* ---- Day scrollytelling ---- */
-.day-scroll { height: 420svh; position: relative; }
+.day-scroll { height: 460svh; position: relative; }
 .day-sticky {
   position: sticky; top: 0; height: 100svh;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  gap: 26px; overflow: hidden;
+  gap: 24px; overflow: hidden;
 }
+.day-glow {
+  position: absolute; inset: -20%;
+  background: radial-gradient(46% 38% at 50% 46%, rgb(var(--glow, 124 96 170) / 0.34), transparent 72%);
+  pointer-events: none;
+  will-change: background;
+}
+.day-head { position: relative; text-align: center; z-index: 2; }
+.day-head .kicker { justify-content: center; }
+.day-head h2 { font-size: clamp(28px, 3.6vw, 40px); }
 .day-phone {
   position: relative;
-  height: min(58svh, 560px);
+  height: min(56svh, 560px);
   aspect-ratio: 662 / 1439;
   will-change: transform;
+  z-index: 2;
 }
 .day-phone .day-img {
   position: absolute; inset: 13px;
   width: calc(100% - 26px); height: calc(100% - 26px);
   object-fit: cover; border-radius: 43px;
-  opacity: 0; transform: scale(1.04);
-  transition: opacity 0.7s var(--ease), transform 0.9s var(--ease);
+  opacity: 0;
+  will-change: opacity, transform;
 }
-.day-phone .day-img.active { opacity: 1; transform: none; }
-.day-caption { position: relative; min-height: 120px; width: min(560px, 88vw); text-align: center; }
+.day-caption { position: relative; min-height: 128px; width: min(620px, 88vw); text-align: center; z-index: 2; }
 .day-caption .cap {
   position: absolute; inset: 0;
-  opacity: 0; transform: translateY(16px);
-  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
 }
 .day-caption .cap.active { opacity: 1; transform: none; }
-.day-caption h3 { font-size: clamp(21px, 2.6vw, 27px); font-weight: 600; }
-.day-caption h3 .ar { font-size: 0.85em; margin-left: 8px; }
-.day-caption p { margin-top: 8px; color: var(--text-2); font-size: 16.5px; }
-.day-dots { display: flex; gap: 8px; justify-content: center; }
+.day-caption h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 600; }
+.day-caption h3 .ar { font-size: 0.85em; margin-left: 10px; }
+.day-caption p { margin-top: 10px; color: var(--text-2); font-size: 17.5px; max-width: 52ch; margin-inline: auto; }
+.day-dots { display: flex; gap: 9px; justify-content: center; z-index: 2; }
 .day-dots span {
   width: 7px; height: 7px; border-radius: 50%;
   background: var(--hairline); transition: background 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.day-dots span.active { background: var(--accent); transform: scale(1.3); }
+.day-dots span.active { background: var(--accent); transform: scale(1.35); }
+
+/* ---- Statement (scroll-illuminated) ---- */
+.statement { padding: 20svh 0; }
+.statement p {
+  font-size: clamp(30px, 4.6vw, 56px);
+  line-height: 1.28; font-weight: 600; letter-spacing: -0.4px;
+  max-width: 22ch; margin: 0 auto; text-align: center;
+}
+.statement .w { opacity: 0.16; transition: opacity 0.35s var(--ease); }
+.statement .w.lit { opacity: 1; }
+.statement .w.accent.lit { color: var(--accent); }
+
+/* ---- Hero demo video ---- */
+.phone video { display: block; width: 100%; border-radius: 43px; }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
   .hero-icon, .bismillah, h1.title, .tagline, .hero-ctas, .free-line, .hayya,
   .hero-fan .phone { animation: none; }
   .day-phone .day-img, .day-caption .cap { transition: none; }
+  .statement .w { opacity: 1; transition: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -476,8 +499,12 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
   .fan-right { transform: rotate(8deg) translate(-8vw, 22px); }
   .fan-center { transform: translateY(8px); }
   .fan-center .phone { width: 41vw; }
-  .day-phone { height: min(52svh, 480px); }
+  .day-phone { height: min(48svh, 480px); }
   .day-phone .day-img { inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 27px; }
+  .day-head h2 { font-size: 24px; }
+  .day-caption { min-height: 148px; }
+  .phone video { border-radius: 27px; }
+  .statement p { max-width: 18ch; }
   .showcase { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
   .showcase .shot { order: -1; }
   .showcase .phone { width: min(300px, 72vw); }
