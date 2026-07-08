@@ -230,6 +230,51 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.12; let
 .mission-card .who { margin-top: 22px; color: var(--muted); font-size: 15px; }
 .mission-card .who strong { color: var(--text-2); font-weight: 600; }
 
+/* ---- Justified prose ---- */
+.tagline, .lede, .showcase p, .feature p, .faq details p, .band p,
+.doc p, .doc li {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ---- Compare (other apps vs Salat) ---- */
+.compare {
+  margin-top: 44px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  align-items: stretch;
+}
+.compare .col {
+  border-radius: 24px; padding: 30px 28px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+}
+.compare .col.salat {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--hairline));
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.18), inset 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.compare h3 {
+  font-size: 18px; font-weight: 700; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.compare .col.other h3 { color: var(--muted); }
+.compare .col.salat h3 { color: var(--accent); }
+.compare ul { list-style: none; }
+.compare li {
+  margin: 12px 0; padding-left: 30px; position: relative;
+  color: var(--text-2); font-size: 16px; line-height: 1.55;
+}
+.compare li::before {
+  position: absolute; left: 0; top: 1px;
+  width: 21px; height: 21px; border-radius: 7px;
+  font-size: 12.5px; font-weight: 700;
+  display: grid; place-items: center;
+}
+.compare .col.other li::before { content: "✕"; background: rgba(140, 140, 140, 0.14); color: var(--muted); }
+.compare .col.salat li::before { content: "✓"; background: var(--accent-soft); color: var(--accent); }
+.compare .col.salat li strong { color: var(--text); }
+
 /* ---- App Store badge ---- */
 .store-badge {
   display: inline-flex; align-items: center; gap: 11px;
@@ -317,6 +362,7 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
   .showcase .kicker { justify-content: center; }
   .features { grid-template-columns: 1fr 1fr; }
   .themes-strip .t.mid { transform: none; }
+  .compare { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .features { grid-template-columns: 1fr; }
