@@ -230,14 +230,16 @@ h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.12; let
 .mission-card .who { margin-top: 22px; color: var(--muted); font-size: 15px; }
 .mission-card .who strong { color: var(--text-2); font-weight: 600; }
 
-/* ---- Justified prose ---- */
-.tagline, .lede, .showcase p, .feature p, .faq details p, .band p,
-.doc p, .doc li {
+/* ---- Justified prose ----
+   Only wide, left-aligned prose: justification in narrow cards or centered
+   hero text creates rivers and ugly hyphenation. */
+.lede, .showcase p, .faq details p, .doc p, .doc li {
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
   -webkit-hyphens: auto;
 }
+.center .lede, .band p { text-align: center; hyphens: none; -webkit-hyphens: none; }
 
 /* ---- Compare (other apps vs Salat) ---- */
 .compare {
