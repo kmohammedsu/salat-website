@@ -13,6 +13,7 @@
 <nav>
   <div class="wrap nav-inner">
     <a class="brand" href="index.html"><img src="assets/icon.png" alt="Salat app icon"><span class="name serif">Salat</span><span class="ar serif" lang="ar" dir="rtl">ٱلصَّلَاة</span></a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     <div class="nav-links">
       <a href="index.html#nearby">The app</a>
       <a href="index.html#themes">Themes</a>
@@ -66,5 +67,15 @@ it, in shā&rsquo; Allāh.</p>
     </div>
   </div>
 </footer>
+<script>
+const nav = document.querySelector("nav"), mb = document.querySelector(".menu-btn");
+mb.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  mb.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => {
+  nav.classList.remove("open"); mb.setAttribute("aria-expanded", "false");
+}));
+</script>
 </body>
 </html>

@@ -26,6 +26,7 @@
       <span class="name serif">Salat</span>
       <span class="ar serif" lang="ar" dir="rtl">ٱلصَّلَاة</span>
     </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     <div class="nav-links">
       <a href="#nearby">The app</a>
       <a href="#themes">Themes</a>
@@ -283,6 +284,15 @@ document.querySelectorAll('a[href^="#"]').forEach((a) => {
     target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   });
 });
+
+const nav = document.querySelector("nav"), mb = document.querySelector(".menu-btn");
+mb.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  mb.setAttribute("aria-expanded", open);
+});
+document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => {
+  nav.classList.remove("open"); mb.setAttribute("aria-expanded", "false");
+}));
 
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
