@@ -455,8 +455,10 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
   z-index: 2;
 }
 .day-phone .day-img {
-  position: absolute; inset: calc(var(--pw) * 0.043);
-  width: auto; height: auto;
+  position: absolute;
+  left: calc(var(--pw) * 0.043); top: calc(var(--pw) * 0.043);
+  width: calc(100% - var(--pw) * 0.086);
+  height: calc(100% - var(--pw) * 0.086);
   object-fit: cover; border-radius: calc(var(--pw) * 0.129);
   opacity: 0;
   will-change: opacity, transform;
