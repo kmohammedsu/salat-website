@@ -14,6 +14,8 @@
   --gold: #ba9e4a;
   --card-shadow: 0 18px 44px rgba(16, 34, 31, 0.14);
   --hero-glow: radial-gradient(60% 50% at 70% 10%, rgba(47, 163, 155, 0.16), transparent 70%);
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -61,11 +63,14 @@ nav {
   background: color-mix(in srgb, var(--bg) 78%, transparent);
   border-bottom: 1px solid var(--hairline);
 }
-.nav-inner { display: flex; align-items: center; gap: 28px; height: 70px; }
+.nav-inner { display: flex; align-items: center; gap: 28px; height: 70px; transition: height 0.5s var(--ease-out); }
+nav.scrolled .nav-inner { height: 56px; }
+nav.scrolled .brand img { width: 32px; height: 32px; }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--text); font-weight: 600; }
 .brand img {
   width: 40px; height: 40px; border-radius: 11px;
   box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  transition: width 0.5s var(--ease-out), height 0.5s var(--ease-out);
 }
 .brand .name { font-size: 21px; letter-spacing: -0.2px; }
 .brand .ar { font-size: 18px; margin-left: 2px; opacity: 0.95; }
@@ -126,17 +131,40 @@ h1.title {
   color: var(--muted); margin-left: 12px;
 }
 
+/* Hero load cascade */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes phone-in {
+  from { opacity: 0; transform: translateY(110px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-icon, .bismillah, h1.title, .tagline, .hero-ctas, .free-line, .hayya {
+  animation: rise-in 1s var(--ease-out) both;
+}
+.bismillah { animation-delay: 0.1s; }
+h1.title { animation-delay: 0.2s; }
+.tagline { animation-delay: 0.32s; }
+.hero-ctas { animation-delay: 0.44s; }
+.free-line { animation-delay: 0.54s; }
+.hayya { animation-delay: 0.64s; }
+
 /* Fanned phone trio */
 .hero-fan {
   margin-top: 50px;
   display: flex; justify-content: center; align-items: flex-end;
   min-height: 460px;
+  will-change: transform;
 }
-.hero-fan .phone { width: min(300px, 74vw); }
-.fan-left, .fan-right { display: block; }
+.hero-fan .phone { width: min(300px, 74vw); animation: phone-in 1.2s var(--ease-out) both; }
+.fan-slot { display: block; }
 .fan-left  { transform: rotate(-7deg) translate(46px, 44px); z-index: 1; }
 .fan-right { transform: rotate(7deg) translate(-46px, 44px); z-index: 1; }
 .fan-center { z-index: 2; transform: translateY(12px); }
+.fan-center .phone { animation-delay: 0.55s; }
+.fan-left .phone   { animation-delay: 0.75s; }
+.fan-right .phone  { animation-delay: 0.9s; }
 
 /* ---- iPhone frames ---- */
 .phone {
@@ -367,10 +395,76 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
 .doc em { color: var(--text); }
 
 /* ---- Scroll reveal ---- */
-.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal {
+  opacity: 0;
+  transform: translateY(48px) scale(0.985);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+}
 .reveal.in { opacity: 1; transform: none; }
+
+.stagger > * {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+.stagger.in > * { opacity: 1; transform: none; }
+.stagger.in > *:nth-child(1) { transition-delay: 0.05s; }
+.stagger.in > *:nth-child(2) { transition-delay: 0.14s; }
+.stagger.in > *:nth-child(3) { transition-delay: 0.23s; }
+.stagger.in > *:nth-child(4) { transition-delay: 0.32s; }
+.stagger.in > *:nth-child(5) { transition-delay: 0.41s; }
+.stagger.in > *:nth-child(6) { transition-delay: 0.5s; }
+.stagger.in > *:nth-child(7) { transition-delay: 0.59s; }
+.stagger.in > *:nth-child(8) { transition-delay: 0.68s; }
+.stagger.done > * { transition-delay: 0s; }
+.features.done > .feature {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ---- Day scrollytelling ---- */
+.day-scroll { height: 420svh; position: relative; }
+.day-sticky {
+  position: sticky; top: 0; height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 26px; overflow: hidden;
+}
+.day-phone {
+  position: relative;
+  height: min(58svh, 560px);
+  aspect-ratio: 662 / 1439;
+  will-change: transform;
+}
+.day-phone .day-img {
+  position: absolute; inset: 13px;
+  width: calc(100% - 26px); height: calc(100% - 26px);
+  object-fit: cover; border-radius: 43px;
+  opacity: 0; transform: scale(1.04);
+  transition: opacity 0.7s var(--ease), transform 0.9s var(--ease);
+}
+.day-phone .day-img.active { opacity: 1; transform: none; }
+.day-caption { position: relative; min-height: 120px; width: min(560px, 88vw); text-align: center; }
+.day-caption .cap {
+  position: absolute; inset: 0;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.day-caption .cap.active { opacity: 1; transform: none; }
+.day-caption h3 { font-size: clamp(21px, 2.6vw, 27px); font-weight: 600; }
+.day-caption h3 .ar { font-size: 0.85em; margin-left: 8px; }
+.day-caption p { margin-top: 8px; color: var(--text-2); font-size: 16.5px; }
+.day-dots { display: flex; gap: 8px; justify-content: center; }
+.day-dots span {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--hairline); transition: background 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.day-dots span.active { background: var(--accent); transform: scale(1.3); }
+
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .reveal, .stagger > * { opacity: 1; transform: none; transition: none; }
+  .hero-icon, .bismillah, h1.title, .tagline, .hero-ctas, .free-line, .hayya,
+  .hero-fan .phone { animation: none; }
+  .day-phone .day-img, .day-caption .cap { transition: none; }
   html { scroll-behavior: auto; }
 }
 
@@ -380,7 +474,10 @@ footer { border-top: 1px solid var(--hairline); padding: 44px 0 60px; color: var
   .hero-fan .phone img { border-radius: 27px; }
   .fan-left  { transform: rotate(-8deg) translate(8vw, 22px); }
   .fan-right { transform: rotate(8deg) translate(-8vw, 22px); }
-  .fan-center { width: 41vw; transform: translateY(8px); }
+  .fan-center { transform: translateY(8px); }
+  .fan-center .phone { width: 41vw; }
+  .day-phone { height: min(52svh, 480px); }
+  .day-phone .day-img { inset: 7px; width: calc(100% - 14px); height: calc(100% - 14px); border-radius: 27px; }
   .showcase { grid-template-columns: 1fr; text-align: center; padding: 40px 0; }
   .showcase .shot { order: -1; }
   .showcase .phone { width: min(300px, 72vw); }

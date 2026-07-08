@@ -69,6 +69,7 @@ it, in shā&rsquo; Allāh.</p>
 </footer>
 <script>
 const nav = document.querySelector("nav"), mb = document.querySelector(".menu-btn");
+window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 24), { passive: true });
 mb.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
   mb.setAttribute("aria-expanded", open);

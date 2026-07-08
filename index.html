@@ -41,6 +41,7 @@
 
 <header class="hero">
   <div class="wrap">
+    <div id="heroCopy">
     <img class="hero-icon" src="assets/icon.png" alt="Salat app icon">
     <div class="bismillah serif" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
     <h1 class="title serif">So no one misses<br>the jama&rsquo;ah.</h1>
@@ -59,14 +60,40 @@
       <span><span class="dot">●</span> No tracking</span>
     </div>
     <p class="hayya serif"><span class="ar" lang="ar" dir="rtl">حَيَّ عَلَى ٱلصَّلَاةِ</span><span class="tr">Come to prayer</span></p>
+    </div>
 
     <div class="hero-fan">
-      <div class="phone fan-left"><img src="assets/nearby-default.png" alt="Nearby masjids list comparing iqamah times" loading="eager"></div>
-      <div class="phone fan-center"><img src="assets/home.png" alt="Salat home screen showing the prayer card with the masjid's iqamah time" loading="eager"></div>
-      <div class="phone fan-right"><img src="assets/cardback.png" alt="Prayer card flipped to show rak'ah breakdown and the sunnah of the day" loading="eager"></div>
+      <div class="fan-slot fan-left"><div class="phone"><img src="assets/nearby-default.png" alt="Nearby masjids list comparing iqamah times" loading="eager"></div></div>
+      <div class="fan-slot fan-center"><div class="phone"><img src="assets/home.png" alt="Salat home screen showing the prayer card with the masjid's iqamah time" loading="eager"></div></div>
+      <div class="fan-slot fan-right"><div class="phone"><img src="assets/cardback.png" alt="Prayer card flipped to show rak'ah breakdown and the sunnah of the day" loading="eager"></div></div>
     </div>
   </div>
 </header>
+
+<section id="day">
+  <div class="wrap center reveal">
+    <div class="kicker">One day with Salat <span class="ar serif" lang="ar" dir="rtl">يَوْم مَعَ ٱلصَّلَاة</span></div>
+    <h2 class="serif">From dawn to night</h2>
+    <p class="lede">The card follows the sky. Keep scrolling and watch a single day pass at the Islamic Center of Redmond.</p>
+  </div>
+  <div class="day-scroll" id="dayScroll">
+    <div class="day-sticky">
+      <div class="phone day-phone">
+        <img class="day-img active" src="assets/home.png" alt="Fajr prayer card at dawn with the masjid's iqamah time">
+        <img class="day-img" src="assets/day-dhuhr.png" alt="Dhuhr prayer card at midday" loading="lazy">
+        <img class="day-img" src="assets/day-maghrib.png" alt="Maghrib prayer card at sunset" loading="lazy">
+        <img class="day-img" src="assets/day-isha.png" alt="Isha prayer card at night" loading="lazy">
+      </div>
+      <div class="day-caption">
+        <div class="cap active"><h3 class="serif">Dawn <span class="ar serif" lang="ar" dir="rtl">ٱلْفَجْر</span></h3><p>The day begins with Fajr. One glance and you know the iqamah at your masjid, before the sky turns light.</p></div>
+        <div class="cap"><h3 class="serif">Midday <span class="ar serif" lang="ar" dir="rtl">ٱلظُّهْر</span></h3><p>At work or at school, Dhuhr&rsquo;s jama&rsquo;ah is one look away, with the drive time to make it.</p></div>
+        <div class="cap"><h3 class="serif">Sunset <span class="ar serif" lang="ar" dir="rtl">ٱلْمَغْرِب</span></h3><p>A 15 and a 10 minute nudge before Maghrib, and you&rsquo;re out the door before the adhan fades.</p></div>
+        <div class="cap"><h3 class="serif">Night <span class="ar serif" lang="ar" dir="rtl">ٱلْعِشَاء</span></h3><p>The day closes with Isha, and tomorrow&rsquo;s Fajr is already waiting on the card.</p></div>
+      </div>
+      <div class="day-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</section>
 
 <section id="nearby" class="alt">
   <div class="wrap">
@@ -136,7 +163,7 @@
     <h2 class="serif">Make it yours</h2>
     <p class="lede">Nine calm palettes, each tuned for light and dark. Pick one you love, or one your kid loves. Applied instantly.</p>
 
-    <div class="themes-strip reveal">
+    <div class="themes-strip reveal stagger">
       <figure class="t"><div class="phone"><img src="assets/nearby-rose.png" alt="Nearby masjids in the Rose Quartz theme" loading="lazy"></div><figcaption>Rose Quartz</figcaption></figure>
       <figure class="t mid"><div class="phone"><img src="assets/nearby-navy.png" alt="Nearby masjids in the Navy and Antique Gold theme" loading="lazy"></div><figcaption>Navy &amp; Antique Gold</figcaption></figure>
       <figure class="t"><div class="phone"><img src="assets/nearby-emerald.png" alt="Nearby masjids in the Emerald Dusk theme" loading="lazy"></div><figcaption>Emerald Dusk</figcaption></figure>
@@ -149,7 +176,7 @@
     <div class="kicker">And more <span class="ar serif" lang="ar" dir="rtl">وَٱلْمَزِيد</span></div>
     <h2 class="serif">Every detail considered</h2>
 
-    <div class="features reveal">
+    <div class="features reveal stagger">
       <div class="feature">
         <div class="icon">👂</div>
         <h3>We&rsquo;re all ears</h3>
@@ -190,7 +217,7 @@
     <h2 class="serif">The time your masjid actually follows</h2>
     <p class="lede">Reaching the jama&rsquo;ah used to take three apps. First, figure out which masjid is actually near you. Then dig through its website for the exact iqamah timings. Then open Maps to work out how to get there. Salat fetches the times straight from each masjid and brings everything to one place: the masjids around you, the timings they truly follow, and the way there.</p>
 
-    <div class="compare reveal">
+    <div class="compare reveal stagger">
       <div class="col other">
         <h3>Other prayer apps</h3>
         <ul>
@@ -220,7 +247,7 @@
     <div class="kicker">Questions <span class="ar serif" lang="ar" dir="rtl">أَسْئِلَة</span></div>
     <h2 class="serif">Good to know</h2>
 
-    <div class="faq reveal" style="text-align:left">
+    <div class="faq reveal stagger" style="text-align:left">
       <details>
         <summary>Is Salat really free?</summary>
         <p>Yes, free forever. No ads, no subscriptions, no in-app purchases, and no accounts. It is built as a sadaqah jariyah for the community.</p>
@@ -273,31 +300,73 @@
 <script>
 document.getElementById("y").textContent = new Date().getFullYear();
 
-// Scroll to same-page sections without leaving a #hash in the URL.
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
   a.addEventListener("click", (e) => {
     const id = a.getAttribute("href").slice(1);
     const target = id ? document.getElementById(id) : document.body;
     if (!target) return;
     e.preventDefault();
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   });
 });
 
-const nav = document.querySelector("nav"), mb = document.querySelector(".menu-btn");
+const navEl = document.querySelector("nav"), mb = document.querySelector(".menu-btn");
 mb.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
+  const open = navEl.classList.toggle("open");
   mb.setAttribute("aria-expanded", open);
 });
 document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click", () => {
-  nav.classList.remove("open"); mb.setAttribute("aria-expanded", "false");
+  navEl.classList.remove("open"); mb.setAttribute("aria-expanded", "false");
 }));
 
 const io = new IntersectionObserver((entries) => {
-  for (const e of entries) if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  for (const e of entries) if (e.isIntersecting) {
+    e.target.classList.add("in");
+    setTimeout(() => e.target.classList.add("done"), 1700);
+    io.unobserve(e.target);
+  }
 }, { threshold: 0.12 });
-document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+document.querySelectorAll(".reveal, .stagger").forEach((el) => io.observe(el));
+
+const heroCopy = document.getElementById("heroCopy");
+const heroFan = document.querySelector(".hero-fan");
+const dayScroll = document.getElementById("dayScroll");
+const dayImgs = dayScroll ? [...dayScroll.querySelectorAll(".day-img")] : [];
+const dayCaps = dayScroll ? [...dayScroll.querySelectorAll(".cap")] : [];
+const dayDots = dayScroll ? [...dayScroll.querySelectorAll(".day-dots span")] : [];
+let dayIdx = 0, ticking = false;
+
+function setDay(i) {
+  if (i === dayIdx) return;
+  dayIdx = i;
+  dayImgs.forEach((el, j) => el.classList.toggle("active", j === i));
+  dayCaps.forEach((el, j) => el.classList.toggle("active", j === i));
+  dayDots.forEach((el, j) => el.classList.toggle("active", j === i));
+}
+
+function onFrame() {
+  ticking = false;
+  const sy = window.scrollY;
+  navEl.classList.toggle("scrolled", sy > 24);
+  if (!reduceMotion && sy < window.innerHeight * 1.2) {
+    heroCopy.style.transform = "translateY(" + (sy * 0.22) + "px)";
+    heroCopy.style.opacity = Math.max(0, 1 - sy / 640);
+    heroFan.style.transform = "translateY(" + (sy * -0.07) + "px)";
+  }
+  if (dayScroll) {
+    const r = dayScroll.getBoundingClientRect();
+    const total = r.height - window.innerHeight;
+    if (total > 0) {
+      const p = Math.min(0.999, Math.max(0, -r.top / total));
+      setDay(Math.floor(p * dayImgs.length));
+    }
+  }
+}
+function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(onFrame); } }
+window.addEventListener("scroll", onScroll, { passive: true });
+onFrame();
 </script>
 </body>
 </html>
