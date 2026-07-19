@@ -5,14 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Demo · Salat</title>
 <meta name="description" content="Watch Salat in action: the prayer card gliding through the day, the teaching face, nearby masjids, and live themes. A real capture from the app.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f3ea">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16110a">
 <link rel="icon" href="assets/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <nav>
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html"><img src="assets/icon.png" alt="Salat app icon"><span class="name serif">Salat</span><span class="ar serif" lang="ar" dir="rtl">ٱلصَّلَاة</span></a>
+    <a class="brand" href="index.html">
+      <span class="name serif">Salat</span>
+      <span class="ar serif" lang="ar" dir="rtl">ٱلصَّلَاة</span>
+    </a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
     <div class="nav-links">
       <a href="index.html#nearby">The app</a>
@@ -27,10 +34,11 @@
   </div>
 </nav>
 
+<main id="main">
 <section id="motion">
-  <div class="wrap center">
-    <div class="kicker">Demo <span class="ar serif" lang="ar" dir="rtl">شَاهِدْ</span></div>
-    <h2 class="serif">Your first minute with Salat</h2>
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true" style="top:-0.12em; right:-0.05em">شَاهِدْ</div>
+  <div class="wrap">
+    <h2 class="serif">Your first minute with <em>Salat.</em></h2>
     <p class="lede">One real capture, no editing tricks: the prayer card glides from Fajr to Isha, flips into its lesson, opens the nearby masjids, expands a full day of adhan and iqamah, and changes its theme live.</p>
     <div class="phone"><video id="demoVideo" src="assets/demo.mp4" poster="assets/home.webp" muted loop playsinline preload="metadata" aria-label="Screen capture of Salat: gliding through the day's prayer cards, flipping to the rak'ah and sunnah face, browsing nearby masjids with adhan and iqamah times, and switching themes live"></video></div>
     <div><button class="motion-ctl" id="motionCtl" aria-label="Pause video">Pause</button></div>
@@ -38,12 +46,14 @@
     <a href="index.html#nearby">Explore the features</a> · <a href="index.html#mission">Why Salat is different</a></p>
   </div>
 </section>
+</main>
 
 <footer>
   <div class="wrap">
+    <hr class="rule-x heavy" aria-hidden="true">
     <p class="foot-dua serif ar" lang="ar" dir="rtl">تَقَبَّلَ ٱللَّٰهُ مِنَّا وَمِنْكُمْ<span class="tr">May Allah accept it from us and from you</span></p>
     <div class="foot">
-      <span>© 2026 Salat · Built by the community, for the community · Exclusively for iPhone</span>
+      <span>© 2026 Salat. Built by the community, for the community. Exclusively for iPhone.</span>
       <div class="links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="support.html">Support</a>

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salat · A community prayer companion for iPhone</title>
 <meta name="description" content="Salat shows the real jama'ah times set by your masjid's own committee. Compare nearby masjids, learn a sunnah a day, and never miss the jama'ah. Exclusively for iPhone. Free forever, no ads, no tracking.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f3ea">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16110a">
 <meta property="og:title" content="Salat · A community prayer companion for iPhone">
 <meta property="og:description" content="Real masjid iqamah times, nearby comparison, and gentle learning for every age. Exclusively for iPhone. Free forever. No ads. No tracking.">
 <meta property="og:image" content="https://kmohammedsu.github.io/salat-website/assets/home.png">
@@ -20,10 +22,11 @@
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+
 <nav>
   <div class="wrap nav-inner">
     <a class="brand" href="#">
-      <img src="assets/icon.png" alt="Salat app icon">
       <span class="name serif">Salat</span>
       <span class="ar serif" lang="ar" dir="rtl">ٱلصَّلَاة</span>
     </a>
@@ -41,189 +44,160 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <div id="heroCopy">
-    <img class="hero-icon" src="assets/icon.png" alt="Salat app icon">
-    <div class="bismillah serif" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
-    <h1 class="title serif">So no one misses<br>the jama&rsquo;ah.</h1>
-    <p class="tagline">Salat shows the <strong>real iqamah times set by your masjid&rsquo;s own committee</strong>, in one calm, beautiful place.</p>
-    <div class="hero-ctas">
-      <a class="btn" href="#nearby">See the app</a>
-      <div class="store-badge" aria-disabled="true" title="Coming soon to the App Store">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-        <div class="bt"><small>Coming soon to the</small><b>App&nbsp;Store</b></div>
-      </div>
-    </div>
-    <div class="free-line">
-      <span><span class="dot">●</span> Free forever</span>
-      <span><span class="dot">●</span> No ads</span>
-      <span><span class="dot">●</span> No accounts</span>
-      <span><span class="dot">●</span> No tracking</span>
-    </div>
-    <p class="hayya serif"><span class="ar" lang="ar" dir="rtl">حَيَّ عَلَى ٱلصَّلَاةِ</span><span class="tr">Come to prayer</span></p>
-    </div>
+<main id="main">
 
-    <div class="hero-fan">
-      <div class="fan-slot fan-left"><div class="phone"><img src="assets/nearby-default.webp" alt="Nearby masjids list comparing iqamah times" loading="eager"></div></div>
-      <div class="fan-slot fan-center"><div class="phone"><img src="assets/home.webp" alt="Salat home screen showing the prayer card with the masjid's iqamah time" loading="eager"></div></div>
-      <div class="fan-slot fan-right"><div class="phone"><img src="assets/cardback.webp" alt="Prayer card flipped to show rak'ah breakdown and the sunnah of the day" loading="eager"></div></div>
+<header class="hero" id="top">
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">ٱلصَّلَاة</div>
+  <div class="wrap">
+    <div class="meta-row">
+      <span class="meta">A community prayer companion<span class="sep">·</span>iPhone</span>
+      <hr class="rule-x reveal-rule" aria-hidden="true">
+    </div>
+    <h1 class="display serif">
+      <span class="rise"><span>So no one misses</span></span>
+      <span class="rise"><span>the <em>jama&rsquo;ah.</em></span></span>
+    </h1>
+    <hr class="rule-x reveal-rule after-rule" aria-hidden="true">
+    <div class="hero-foot">
+      <div class="reveal in-hero">
+        <p class="standfirst">Salat shows the <strong>real iqamah times set by your masjid&rsquo;s own committee</strong>, in one calm, beautiful place.</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#nearby">See the app <svg class="chev" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg></a>
+          <div class="store-badge" aria-disabled="true" title="Coming soon to the App Store">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+            <div class="bt"><small>Coming soon to the</small><b>App&nbsp;Store</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-shot reveal in-hero">
+        <div class="phone"><img src="assets/home.webp" alt="Salat home screen at Fajr: the prayer card with the masjid's iqamah time" loading="eager" fetchpriority="high"></div>
+      </div>
     </div>
   </div>
 </header>
 
-<section id="day">
-  <div class="day-scroll" id="dayScroll">
-    <div class="day-sticky">
-      <div class="day-glow" id="dayGlow" aria-hidden="true"></div>
-      <div class="day-head">
-        <div class="kicker">One day with Salat <span class="ar serif" lang="ar" dir="rtl">يَوْم مَعَ ٱلصَّلَاة</span></div>
-        <h2 class="serif">From dawn to night</h2>
-      </div>
-      <div class="phone day-phone">
-        <img class="day-img active" src="assets/home.webp" alt="Fajr prayer card at dawn with the masjid's iqamah time">
-        <img class="day-img" src="assets/day-dhuhr.webp" alt="Dhuhr prayer card at midday" loading="lazy">
-        <img class="day-img" src="assets/day-asr.webp" alt="Asr prayer card in the afternoon" loading="lazy">
-        <img class="day-img" src="assets/day-maghrib.webp" alt="Maghrib prayer card at sunset" loading="lazy">
-        <img class="day-img" src="assets/day-isha.webp" alt="Isha prayer card at night" loading="lazy">
-      </div>
-      <div class="day-caption">
-        <div class="cap active"><h3 class="serif">Fajr <span class="ar serif" lang="ar" dir="rtl">ٱلْفَجْر</span></h3><p>The day begins with Fajr. One glance and you know the iqamah at your masjid, before the sky turns light.</p></div>
-        <div class="cap"><h3 class="serif">Dhuhr <span class="ar serif" lang="ar" dir="rtl">ٱلظُّهْر</span></h3><p>At work or at school, Dhuhr&rsquo;s jama&rsquo;ah is one look away, with the drive time to make it.</p></div>
-        <div class="cap"><h3 class="serif">Asr <span class="ar serif" lang="ar" dir="rtl">ٱلْعَصْر</span></h3><p>Between meetings and errands, Asr stays within reach. The card always knows what&rsquo;s next.</p></div>
-        <div class="cap"><h3 class="serif">Maghrib <span class="ar serif" lang="ar" dir="rtl">ٱلْمَغْرِب</span></h3><p>A 15 and a 10 minute nudge before Maghrib, and you&rsquo;re out the door before the adhan fades.</p></div>
-        <div class="cap"><h3 class="serif">Isha <span class="ar serif" lang="ar" dir="rtl">ٱلْعِشَاء</span></h3><p>The day closes with Isha, and tomorrow&rsquo;s Fajr is already waiting on the card.</p></div>
-      </div>
-      <div class="day-dots" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+<section class="promise" aria-label="Free forever, no ads, no accounts, no tracking">
+  <div class="wrap">
+    <div class="free-line reveal">
+      <span><svg viewBox="0 0 16 16" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg> Free forever</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg> No ads</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg> No accounts</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8.5l3.5 3.5 7.5-8"/></svg> No tracking</span>
     </div>
   </div>
 </section>
 
-<section id="nearby" class="alt">
+<section class="spread" id="nearby">
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">ٱلْمَسَاجِد</div>
   <div class="wrap">
-    <div class="showcase reveal">
-      <div class="text">
-        <div class="kicker">Nearby masjids <span class="ar serif" lang="ar" dir="rtl">ٱلْمَسَاجِد</span></div>
-        <h3 class="serif">One prayer. Every masjid. At a glance.</h3>
-        <p>A Weather-style view of the current prayer across every masjid around you, so you can pick the jama&rsquo;ah you can actually make.</p>
-        <ul>
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true">
+    <div class="grid">
+      <div class="text reveal">
+        <h2 class="serif">One prayer. Every masjid. <em>At a glance.</em></h2>
+        <p class="lede">A Weather-style view of the current prayer across every masjid around you, so you can pick the jama&rsquo;ah you can actually make.</p>
+        <ul class="points">
           <li><strong>Committee-set iqamah</strong> front and centre, never an estimate</li>
           <li><strong>Distance and real driving time</strong> to each masjid</li>
           <li><strong>NEXT</strong> highlights the jama&rsquo;ah coming up soonest</li>
           <li>Travelling? Mosques near you appear even before we have their times</li>
         </ul>
       </div>
-      <div class="shot"><div class="phone"><img src="assets/nearby-default.webp" alt="Nearby masjids list comparing Fajr iqamah times with distance and drive time" loading="lazy"></div></div>
+      <div class="shot reveal">
+        <figure>
+          <div class="phone"><img src="assets/nearby-default.webp" alt="Nearby masjids list comparing iqamah times with distance and drive time" loading="lazy"></div>
+        </figure>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="showcase flip reveal">
-      <div class="text">
-        <div class="kicker">The whole day <span class="ar serif" lang="ar" dir="rtl">ٱلْأَذَان وَٱلْإِقَامَة</span></div>
-        <h3 class="serif">Adhan &amp; Iqamah, side by side</h3>
-        <p>Open any masjid for its full day: every adhan, every iqamah, and Jumu&rsquo;ah khutbah times, exactly as the masjid publishes them.</p>
-        <ul>
+<section class="spread flip" id="day">
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">ٱلْإِقَامَة</div>
+  <div class="wrap">
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true">
+    <div class="grid">
+      <div class="text reveal">
+        <h2 class="serif">Adhan &amp; Iqamah, <em>side by side.</em></h2>
+        <p class="lede">Open any masjid for its full day: every adhan, every iqamah, and Jumu&rsquo;ah khutbah times, exactly as the masjid publishes them.</p>
+        <ul class="points">
           <li>All five prayers with <strong>both adhan and iqamah</strong></li>
           <li><strong>Jumu&rsquo;ah</strong> takes its rightful place on Fridays</li>
-          <li>Set any masjid as your home masjid in one tap</li>
+          <li>Set any masjid as your <strong>home masjid</strong> in one tap</li>
         </ul>
       </div>
-      <div class="shot"><div class="phone"><img src="assets/expanded.webp" alt="Expanded masjid card showing adhan and iqamah columns for all prayers including Jumu'ah" loading="lazy"></div></div>
-    </div>
-
-    <div class="showcase reveal">
-      <div class="text">
-        <div class="kicker">For every age <span class="ar serif" lang="ar" dir="rtl">ٱلسُّنَّة</span></div>
-        <h3 class="serif">A gentle teacher, built in</h3>
-        <p>Flip any prayer card and Salat becomes a quiet lesson. Perfect for a child learning to pray, and a beautiful reminder for you, on the way to the masjid.</p>
-        <ul>
-          <li><strong>Rak&rsquo;ah breakdown</strong> for every prayer</li>
-          <li>A <strong>new sunnah every day</strong>, with its source</li>
-          <li>Short du&rsquo;as and the Durood, simply explained</li>
-        </ul>
+      <div class="shot reveal">
+        <figure>
+          <div class="phone"><img src="assets/expanded.webp" alt="Expanded masjid card showing adhan and iqamah columns for all prayers including Jumu'ah" loading="lazy"></div>
+        </figure>
       </div>
-      <div class="shot"><div class="phone"><img src="assets/cardback.webp" alt="Prayer card back showing rak'ah breakdown and the sunnah of the day with hadith reference" loading="lazy"></div></div>
     </div>
+  </div>
+</section>
 
-    <div class="showcase flip reveal">
-      <div class="text">
-        <div class="kicker">Your reminders <span class="ar serif" lang="ar" dir="rtl">ٱلتَّذْكِير</span></div>
-        <h3 class="serif">Every prayer gets its own reminder</h3>
-        <p>Not one generic alarm for everything. Each of the five prayers has its own notification, tuned to how your day actually flows around it.</p>
-        <ul>
+<section class="spread center-spread" id="learn">
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">ٱلسُّنَّة</div>
+  <div class="wrap">
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true">
+    <div class="reveal">
+      <h2 class="serif">A gentle teacher, <em>built in.</em></h2>
+      <p class="lede">Flip any prayer card and Salat becomes a quiet lesson. Perfect for a child learning to pray, and a beautiful reminder for you, on the way to the masjid.</p>
+      <div class="shot">
+        <figure>
+          <div class="phone"><img src="assets/cardback.webp" alt="Prayer card back showing rak'ah breakdown and the sunnah of the day with its hadith reference" loading="lazy"></div>
+          <figcaption>Rak&rsquo;ah breakdown, a new sunnah every day with its source, short du&rsquo;as and the Durood, simply explained.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="spread" id="reminders">
+  <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">ٱلتَّذْكِير</div>
+  <div class="wrap">
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true">
+    <div class="grid">
+      <div class="text reveal">
+        <h2 class="serif">Every prayer gets its own <em>reminder.</em></h2>
+        <p class="lede">Not one generic alarm for everything. Each of the five prayers has its own notification, tuned to how your day actually flows around it.</p>
+        <ul class="points">
           <li>Per prayer, pick a style: <strong>off, silent banner, vibration, or sound</strong></li>
-          <li>Per prayer, pick the timing: <strong>at jama&rsquo;ah time, or 1, 5, 10, 15, 30 minutes before</strong>, and you can stack more than one</li>
-          <li>Wake up 20 minutes before Fajr to freshen up and drive, take <strong>15 and 10 minute nudges for Maghrib</strong>, keep Isha silent</li>
+          <li>Per prayer, pick the timing: <strong>at jama&rsquo;ah time, or 1 to 30 minutes before</strong>, and you can stack more than one</li>
+          <li>Wake up 20 minutes before Fajr, take <strong>15 and 10 minute nudges for Maghrib</strong>, keep Isha silent</li>
           <li><strong>Send a preview</strong> to test the style before you rely on it</li>
         </ul>
       </div>
-      <div class="shot"><div class="phone"><img src="assets/notif-detail.webp" alt="Maghrib notification settings with sound style selected and 10 and 15 minutes-before reminders switched on" loading="lazy"></div></div>
+      <div class="shot reveal">
+        <figure>
+          <div class="phone"><img src="assets/notif-detail.webp" alt="Maghrib notification settings with sound style selected and 10 and 15 minutes-before reminders switched on" loading="lazy"></div>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="themes">
-  <div class="wrap center">
-    <div class="kicker">Themes <span class="ar serif" lang="ar" dir="rtl">أَلْوَان</span></div>
-    <h2 class="serif">Make it yours</h2>
-    <p class="lede">Nine calm palettes, each tuned for light and dark. Pick one you love, or one your kid loves. Applied instantly.</p>
-
-    <div class="themes-strip reveal stagger">
-      <figure class="t"><div class="phone"><img src="assets/nearby-rose.webp" alt="Nearby masjids in the Rose Quartz theme" loading="lazy"></div><figcaption>Rose Quartz</figcaption></figure>
-      <figure class="t mid"><div class="phone"><img src="assets/nearby-navy.webp" alt="Nearby masjids in the Navy and Antique Gold theme" loading="lazy"></div><figcaption>Navy &amp; Antique Gold</figcaption></figure>
-      <figure class="t"><div class="phone"><img src="assets/nearby-emerald.webp" alt="Nearby masjids in the Emerald Dusk theme" loading="lazy"></div><figcaption>Emerald Dusk</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section id="features" class="alt">
   <div class="wrap">
-    <div class="kicker">And more <span class="ar serif" lang="ar" dir="rtl">وَٱلْمَزِيد</span></div>
-    <h2 class="serif">Every detail considered</h2>
-
-    <div class="features reveal stagger">
-      <div class="feature">
-        <div class="icon">👂</div>
-        <h3>We&rsquo;re all ears</h3>
-        <p>Salat is shaped by the people who pray with it. Want a feature? Tell us in Settings → Contact us and it joins the community&rsquo;s wishlist.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🛠️</div>
-        <h3>You spot it, we fix it</h3>
-        <p>See a wrong iqamah? Report it in two taps and it&rsquo;s corrected for everyone, fast. The community keeps the times honest.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">⏰</div>
-        <h3>Next jama&rsquo;ah on your Lock Screen</h3>
-        <p>A glanceable widget shows the next jama&rsquo;ah and its time, right on your Lock Screen. No unlock needed.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">📍</div>
-        <h3>Your radius</h3>
-        <p>Decide how far &ldquo;nearby&rdquo; means, from 5 to 50 miles. Salat only shows masjids you&rsquo;d actually travel to.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🌙</div>
-        <h3>Hijri, always</h3>
-        <p>The Islamic date sits at the top of every day, alongside a warm as-salāmu ʿalaykum.</p>
-      </div>
-      <div class="feature">
-        <div class="icon">🔒</div>
-        <h3>Nothing to hide</h3>
-        <p>No accounts, no ads, no analytics, no tracking. Your location never leaves your device except to Apple Maps for drive times.</p>
-      </div>
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true" style="margin-bottom: clamp(40px, 6vw, 64px)">
+    <h2 class="serif reveal">Make it <em>yours.</em></h2>
+    <p class="lede reveal">Nine calm themes, each tuned for light and dark. Pick one you love, or one your kid loves. Applied instantly.</p>
+    <div class="themes-strip reveal stagger">
+      <figure class="t"><div class="phone"><img src="assets/nearby-rose.webp" alt="Nearby masjids in the Rose Quartz theme" loading="lazy"></div><figcaption class="serif">Rose Quartz</figcaption></figure>
+      <figure class="t mid"><div class="phone"><img src="assets/nearby-navy.webp" alt="Nearby masjids in the Navy and Antique Gold theme" loading="lazy"></div><figcaption class="serif">Navy &amp; Antique Gold</figcaption></figure>
+      <figure class="t"><div class="phone"><img src="assets/nearby-emerald.webp" alt="Nearby masjids in the Emerald Dusk theme" loading="lazy"></div><figcaption class="serif">Emerald Dusk</figcaption></figure>
     </div>
+    <p class="theme-roll reveal">The full set: <b>Default</b>, <b>Frosted Arctic</b>, <b>Rose Quartz</b>, <b>Emerald Dusk</b>, <b>Ivory &amp; Slate</b>, <b>Sapphire Night</b>, <b>Obsidian &amp; Gold</b>, <b>Midnight Teal</b>, and <b>Navy &amp; Antique Gold</b>.</p>
   </div>
 </section>
 
 <section id="mission">
   <div class="wrap">
-    <div class="kicker">Why Salat <span class="ar serif" lang="ar" dir="rtl">لِمَاذَا صَلَاة</span></div>
-    <h2 class="serif">The time your masjid actually follows</h2>
-    <p class="lede">Reaching the jama&rsquo;ah used to take three apps. First, figure out which masjid is actually near you. Then dig through its website for the exact iqamah timings. Then open Maps to work out how to get there. Salat fetches the times straight from each masjid and brings everything to one place: the masjids around you, the timings they truly follow, and the way there.</p>
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true" style="margin-bottom: clamp(40px, 6vw, 64px)">
+    <h2 class="serif reveal" style="font-size: clamp(34px, 4.6vw, 60px); line-height: 1.02; letter-spacing: -0.02em;">The time your masjid <em>actually follows.</em></h2>
+    <p class="lede reveal">Reaching the jama&rsquo;ah used to take three apps. First, figure out which masjid is actually near you. Then dig through its website for the exact iqamah timings. Then open Maps to work out how to get there. Salat fetches the times straight from each masjid and brings everything to one place: the masjids around you, the timings they truly follow, and the way there.</p>
 
-    <div class="compare reveal stagger">
+    <div class="versus reveal stagger">
       <div class="col other">
-        <h3>Other prayer apps</h3>
+        <h3 class="serif">Other prayer apps</h3>
         <ul>
           <li>General calculated timings for your city, the same for everyone</li>
           <li>No idea when your mosque actually holds the jama&rsquo;ah, so the times may not help you reach it</li>
@@ -232,7 +206,7 @@
         </ul>
       </div>
       <div class="col salat">
-        <h3>Salat</h3>
+        <h3 class="serif">Salat</h3>
         <ul>
           <li><strong>The timings your masjid follows</strong>: adhan, iqamah, and Jumu&rsquo;ah, set by the masjid itself</li>
           <li><strong>Compare every masjid nearby</strong> and pick the jama&rsquo;ah you can make</li>
@@ -242,16 +216,48 @@
       </div>
     </div>
 
-    <p class="lede" style="margin-top:36px">Salat is free forever, with no ads and no tracking, built by the community as a sadaqah jariyah <span class="ar serif" lang="ar" dir="rtl">صَدَقَة جَارِيَة</span> and, in time, open-sourced back to it. The story behind that promise lives in our <a href="privacy-policy.html">privacy policy</a>. If Salat helps you reach the jama&rsquo;ah, remember its makers in your prayers.</p>
+    <p class="coda reveal">Salat is free forever, with no ads and no tracking, built by the community as a sadaqah jariyah <span class="ar serif" lang="ar" dir="rtl">صَدَقَة جَارِيَة</span> and, in time, open-sourced back to it. The story behind that promise lives in our <a href="privacy-policy.html">privacy policy</a>. If Salat helps you reach the jama&rsquo;ah, remember its makers in your prayers.</p>
   </div>
 </section>
 
-<section id="faq" class="alt">
-  <div class="wrap center">
-    <div class="kicker">Questions <span class="ar serif" lang="ar" dir="rtl">أَسْئِلَة</span></div>
-    <h2 class="serif">Good to know</h2>
+<section id="features">
+  <div class="wrap">
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true" style="margin-bottom: clamp(40px, 6vw, 64px)">
+    <h2 class="serif reveal">Every detail <em>considered.</em></h2>
+    <div class="details-list reveal stagger">
+      <div class="detail">
+        <h3>We&rsquo;re all ears</h3>
+        <p>Salat is shaped by the people who pray with it. Want a feature? Tell us in Settings → Contact us and it joins the community&rsquo;s wishlist.</p>
+      </div>
+      <div class="detail">
+        <h3>You spot it, we fix it</h3>
+        <p>See a wrong iqamah? Report it in two taps and it&rsquo;s corrected for everyone, fast. The community keeps the times honest.</p>
+      </div>
+      <div class="detail">
+        <h3>Next jama&rsquo;ah on your Lock Screen</h3>
+        <p>A glanceable widget shows the next jama&rsquo;ah and its time, right on your Lock Screen. No unlock needed.</p>
+      </div>
+      <div class="detail">
+        <h3>Your radius</h3>
+        <p>Decide how far &ldquo;nearby&rdquo; means, from 5 to 50 miles. Salat only shows masjids you&rsquo;d actually travel to.</p>
+      </div>
+      <div class="detail">
+        <h3>Hijri, always</h3>
+        <p>The Islamic date sits at the top of every day, alongside a warm as-salāmu ʿalaykum.</p>
+      </div>
+      <div class="detail">
+        <h3>Nothing to hide</h3>
+        <p>No accounts, no ads, no analytics, no tracking. Your location never leaves your device except to Apple Maps for drive times.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <div class="faq reveal stagger" style="text-align:left">
+<section id="faq">
+  <div class="wrap">
+    <hr class="rule-x reveal-rule top-rule" aria-hidden="true" style="margin-bottom: clamp(40px, 6vw, 64px)">
+    <h2 class="serif reveal">Good to <em>know.</em></h2>
+    <div class="faq reveal">
       <details>
         <summary>Is Salat really free?</summary>
         <p>Yes, free forever. No ads, no subscriptions, no in-app purchases, and no accounts. It is built as a sadaqah jariyah for the community.</p>
@@ -277,21 +283,26 @@
 </section>
 
 <section id="masjids">
-  <div class="wrap">
-    <div class="band reveal">
-      <div class="kicker">For masjids &amp; imams <span class="ar serif" lang="ar" dir="rtl">لِلْمَسَاجِد</span></div>
-      <h2 class="serif">Bring your community&rsquo;s times to Salat</h2>
-      <p>If you help run a masjid, you can make sure your jama&rsquo;ah times reach every worshipper who opens Salat nearby. Suggest your masjid or send a correction in seconds, no account needed, and we&rsquo;ll keep it live for your congregation.</p>
-      <a class="btn" href="support.html">How to add your masjid</a>
+  <div class="band">
+    <div class="ghost serif" lang="ar" dir="rtl" aria-hidden="true">لِلْمَسَاجِد</div>
+    <div class="wrap">
+      <div class="inner reveal">
+        <h2 class="serif">Bring your community&rsquo;s times to Salat.</h2>
+        <p>If you help run a masjid, you can make sure your jama&rsquo;ah times reach every worshipper who opens Salat nearby. Suggest your masjid or send a correction in seconds, no account needed, and we&rsquo;ll keep it live for your congregation.</p>
+        <a class="btn" href="support.html">How to add your masjid</a>
+      </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="wrap">
+    <hr class="rule-x heavy" aria-hidden="true">
     <p class="foot-dua serif ar" lang="ar" dir="rtl">تَقَبَّلَ ٱللَّٰهُ مِنَّا وَمِنْكُمْ<span class="tr">May Allah accept it from us and from you</span></p>
     <div class="foot">
-      <span>© <span id="y">2026</span> Salat · Built by the community, for the community · Exclusively for iPhone</span>
+      <span>© <span id="y">2026</span> Salat. Built by the community, for the community. Exclusively for iPhone.</span>
       <div class="links">
         <a href="privacy-policy.html">Privacy Policy</a>
         <a href="support.html">Support</a>
@@ -325,103 +336,51 @@ document.querySelectorAll(".nav-links a").forEach(a => a.addEventListener("click
   navEl.classList.remove("open"); mb.setAttribute("aria-expanded", "false");
 }));
 
+/* Hero cascade: headline lines rise, rules draw, standfirst fades */
+const hero = document.querySelector("header.hero");
+requestAnimationFrame(() => requestAnimationFrame(() => {
+  hero.classList.add("in");
+  hero.querySelectorAll(".reveal-rule").forEach((r, i) => setTimeout(() => r.classList.add("in"), 200 + i * 250));
+  hero.querySelectorAll(".reveal").forEach((r, i) => setTimeout(() => r.classList.add("in"), 350 + i * 150));
+}));
+
+/* Scroll reveals */
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) if (e.isIntersecting) {
     e.target.classList.add("in");
-    setTimeout(() => e.target.classList.add("done"), 1700);
+    setTimeout(() => e.target.classList.add("done"), 1400);
     io.unobserve(e.target);
   }
 }, { threshold: 0.12 });
-document.querySelectorAll(".reveal, .stagger").forEach((el) => io.observe(el));
+document.querySelectorAll(".reveal:not(.in-hero), .stagger, .reveal-rule").forEach((el) => io.observe(el));
 
-const heroCopy = document.getElementById("heroCopy");
-const heroFan = document.querySelector(".hero-fan");
-const fanL = document.querySelector(".fan-left"), fanR = document.querySelector(".fan-right"), fanC = document.querySelector(".fan-center");
-const dayScroll = document.getElementById("dayScroll");
-const dayGlow = document.getElementById("dayGlow");
-const dayImgs = [...dayScroll.querySelectorAll(".day-img")];
-const dayCaps = [...dayScroll.querySelectorAll(".cap")];
-const dayDots = [...dayScroll.querySelectorAll(".day-dots span")];
-const showPhones = [...document.querySelectorAll(".showcase .phone")];
-const GLOW = [[126, 98, 176], [88, 146, 186], [188, 142, 76], [206, 100, 62], [40, 58, 96]];
-const SEGS = GLOW.length - 1;
-let dayIdx = -1;
-
-const clamp01 = v => Math.min(1, Math.max(0, v));
-const smooth = t => t * t * (3 - 2 * t);
-
-function setDayLabel(i) {
-  if (i === dayIdx) return;
-  dayIdx = i;
-  dayCaps.forEach((el, j) => el.classList.toggle("active", j === i));
-  dayDots.forEach((el, j) => el.classList.toggle("active", j === i));
-}
-
-const state = { sy: 0, day: 0 };
+/* Phone drift + ghost-Arabic depth drift on scroll */
+const phones = [...document.querySelectorAll(".spread .shot .phone")];
+const ghosts = [...document.querySelectorAll(".ghost")];
 let rafOn = false, idleFrames = 0;
-
-function renderDay(f) {
-  const i = Math.min(SEGS - 1, Math.floor(f)), t = f - i;
-  dayImgs.forEach((img, j) => {
-    if (j === i) { img.style.opacity = 1 - t; img.style.transform = "scale(" + (1 - 0.015 * t) + ")"; }
-    else if (j === i + 1) { img.style.opacity = t; img.style.transform = "scale(" + (1.03 - 0.03 * t) + ")"; }
-    else { img.style.opacity = 0; }
-  });
-  const a = GLOW[i], b = GLOW[i + 1];
-  dayGlow.style.setProperty("--glow",
-    Math.round(a[0] + (b[0] - a[0]) * t) + " " +
-    Math.round(a[1] + (b[1] - a[1]) * t) + " " +
-    Math.round(a[2] + (b[2] - a[2]) * t));
-  setDayLabel(Math.round(f));
-}
-
 function frame() {
   const vh = window.innerHeight;
-  const syT = window.scrollY;
-  navEl.classList.toggle("scrolled", syT > 24);
+  navEl.classList.toggle("scrolled", window.scrollY > 24);
   let live = false;
-
-  state.sy += (syT - state.sy) * 0.14;
-  if (Math.abs(syT - state.sy) > 0.4) live = true; else state.sy = syT;
-
-  if (!reduceMotion && state.sy < vh * 1.3) {
-    heroCopy.style.transform = "translateY(" + (state.sy * 0.22) + "px)";
-    heroCopy.style.opacity = Math.max(0, 1 - state.sy / 640);
-    heroFan.style.transform = "translateY(" + (state.sy * -0.07) + "px)";
-    if (window.innerWidth > 900) {
-      const k = smooth(clamp01(state.sy / 620));
-      fanL.style.transform = "rotate(" + (-7 - 5 * k) + "deg) translate(" + (46 - 40 * k) + "px, " + (12 + 12 * k) + "px)";
-      fanR.style.transform = "rotate(" + (7 + 5 * k) + "deg) translate(" + (-46 + 40 * k) + "px, " + (12 + 12 * k) + "px)";
-      fanC.style.transform = "translateY(" + (4 - 4 * k) + "px)";
-    } else {
-      fanL.style.transform = fanR.style.transform = fanC.style.transform = "";
-    }
-  }
-
-  const r = dayScroll.getBoundingClientRect();
-  const total = r.height - vh;
-  if (total > 0) {
-    const p = clamp01(-r.top / total);
-    const seg = Math.min(SEGS - 0.0001, p * SEGS);
-    const i = Math.floor(seg);
-    const t = smooth(clamp01((seg - i - 0.28) / 0.44));
-    const fT = i + t;
-    state.day += (fT - state.day) * (reduceMotion ? 1 : 0.11);
-    if (Math.abs(fT - state.day) > 0.002) live = true; else state.day = fT;
-    if (r.top < vh && r.bottom > 0) renderDay(state.day);
-  }
-
   if (!reduceMotion) {
-    for (const ph of showPhones) {
+    for (const ph of phones) {
       const pr = ph.getBoundingClientRect();
-      if (pr.bottom < -80 || pr.top > vh + 80) continue;
-      const target = ((pr.top + pr.height / 2 - vh / 2) / vh) * -30;
+      if (pr.bottom < -60 || pr.top > vh + 60) continue;
+      const target = ((pr.top + pr.height / 2 - vh / 2) / vh) * -22;
       ph._y = (ph._y ?? target) + (target - (ph._y ?? target)) * 0.14;
       if (Math.abs(target - ph._y) > 0.3) live = true;
       ph.style.transform = "translateY(" + ph._y.toFixed(1) + "px)";
     }
+    for (const g of ghosts) {
+      const sec = g.parentElement;
+      const sr = sec.getBoundingClientRect();
+      if (sr.bottom < -120 || sr.top > vh + 120) continue;
+      const target = ((sr.top + sr.height / 2 - vh / 2) / vh) * 34;
+      g._y = (g._y ?? target) + (target - (g._y ?? target)) * 0.12;
+      if (Math.abs(target - g._y) > 0.3) live = true;
+      g.style.translate = "0 " + g._y.toFixed(1) + "px";
+    }
   }
-
   idleFrames = live ? 0 : idleFrames + 1;
   if (idleFrames < 12) requestAnimationFrame(frame);
   else rafOn = false;
@@ -430,7 +389,6 @@ function wake() { if (!rafOn) { rafOn = true; idleFrames = 0; requestAnimationFr
 window.addEventListener("scroll", wake, { passive: true });
 window.addEventListener("resize", wake, { passive: true });
 wake();
-
 </script>
 </body>
 </html>
