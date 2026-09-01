@@ -583,7 +583,12 @@ footer .rule-x.heavy { height: 2px; background: var(--rule-strong); margin-botto
   .themes-strip .t.mid { transform: none; }
   .ghost { font-size: clamp(120px, 30vw, 200px); }
 }
-@media (max-width: 700px) {
+/* The nav collapses well before the rest of the layout does. Measured: the
+   brand plus the eight links need 1065px, and below that the row does not
+   wrap, it squeezes, so "The app" and "Why The'Salat" break across two lines
+   inside their own boxes. 1080 keeps a margin over that. Re-measure if a link
+   is ever added or renamed. */
+@media (max-width: 1080px) {
   .menu-btn { display: grid; place-items: center; }
   .nav-links {
     display: none;
@@ -596,6 +601,8 @@ footer .rule-x.heavy { height: 2px; background: var(--rule-strong); margin-botto
   }
   nav.open .nav-links { display: flex; }
   .nav-links a { font-size: 17px; }
+}
+@media (max-width: 700px) {
   .themes-strip {
     flex-wrap: nowrap; justify-content: flex-start;
     overflow-x: auto; scroll-snap-type: x mandatory;
