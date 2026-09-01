@@ -1,4 +1,4 @@
-/* Salat — Bayt: the bilingual editorial.
+/* The'Salat — Bayt: the bilingual editorial.
    ------------------------------------------------------------------
    Typography is the design. Poster-scale New York serif English in
    duet with monumental gold Arabic, set on warm paper with ruled
@@ -251,6 +251,15 @@ h1.display em { font-style: italic; color: var(--emerald); letter-spacing: -0.02
 .store-badge .bt small { display: block; font-size: 10.5px; letter-spacing: 0.03em; opacity: 0.75; }
 .store-badge .bt b { font-size: 19px; font-weight: 600; font-family: -apple-system, BlinkMacSystemFont, sans-serif; }
 .store-badge[aria-disabled="true"] { opacity: 0.75; cursor: default; }
+/* The badge is a live link now that the app has shipped. */
+a.store-badge {
+  text-decoration: none;
+  transition: transform var(--duration-quick) var(--ease-out), opacity var(--duration-quick) ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  a.store-badge:hover { opacity: 0.85; }
+}
+a.store-badge:active { transform: scale(0.97); }
 
 /* ------------------------------------------------------------------
    Editorial spreads */
@@ -288,7 +297,8 @@ h1.display em { font-style: italic; color: var(--emerald); letter-spacing: -0.02
 /* ghost placement per spread: anchored over the phone column, clear of copy */
 #nearby .ghost { top: 0.05em; right: -0.06em; }
 #day .ghost { bottom: -0.12em; left: -0.06em; }
-#reminders .ghost { top: 0.08em; right: -0.06em; }
+#widget .ghost { top: 0.02em; right: -0.06em; }
+#reminders .ghost { bottom: -0.12em; left: -0.06em; }
 
 /* Centered teaching spread */
 .spread.center-spread { text-align: center; }
@@ -365,7 +375,15 @@ h1.display em { font-style: italic; color: var(--emerald); letter-spacing: -0.02
 .theme-roll b { color: var(--ink); font-weight: 600; }
 
 /* ------------------------------------------------------------------
-   Why Salat — two ruled columns */
+   How the times stay right — the trust ledger, ruled like the details */
+#trust { padding: clamp(64px, 8vw, 104px) 0; }
+#trust .ghost { bottom: -0.14em; left: -0.06em; }
+#trust > .wrap { position: relative; z-index: 1; }
+#trust .lede { margin-top: 20px; font-size: 18.5px; color: var(--ink-2); max-width: 66ch;
+  text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
+
+/* ------------------------------------------------------------------
+   Why The'Salat — two ruled columns */
 #mission { padding: clamp(64px, 8vw, 104px) 0; }
 #mission .lede { margin-top: 20px; font-size: 18.5px; color: var(--ink-2); max-width: 66ch;
   text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
@@ -484,9 +502,37 @@ footer .rule-x.heavy { height: 2px; background: var(--rule-strong); margin-botto
 .doc > .date + * { margin-top: 30px; }
 .doc h2 { font-size: 23px; margin: 40px 0 12px; padding-top: 18px; border-top: 1px solid var(--rule); }
 .doc p, .doc li { color: var(--ink-2); text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; }
-.doc ul { padding-left: 22px; margin: 12px 0; }
+.doc ul, .doc ol { padding-left: 22px; margin: 12px 0; }
+.doc ol li::marker { color: var(--gold); font-variant-numeric: tabular-nums; }
 .doc li { margin: 8px 0; }
 .doc strong, .doc em { color: var(--ink); }
+
+/* ------------------------------------------------------------------
+   /download — the one shareable link that hands people to the App Store.
+   Almost nobody reads this page; it is gone in a blink. It still gets the
+   paper and the serif, because the blink is the only thing some visitors
+   will ever have seen of the site. */
+.redirect {
+  min-height: 100svh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px;
+  padding: 40px 24px; text-align: center;
+}
+.redirect .mark {
+  width: 88px; height: 88px; border-radius: 21px;
+  box-shadow: var(--shadow);
+  margin-bottom: 26px;
+}
+.redirect h1 { font-size: clamp(34px, 5vw, 46px); font-weight: 600; letter-spacing: -0.025em; }
+.redirect .line {
+  margin-top: 14px; margin-bottom: 30px;
+  color: var(--ink-2); font-size: 17.5px; line-height: 1.6;
+  max-width: 34ch;
+}
+.redirect .btn.is-waiting { background: var(--ink-3); cursor: default; }
+.redirect .btn.is-waiting .chev { display: none; }
+.redirect .back { margin-top: 30px; font-size: 14.5px; }
+.redirect .back a { color: var(--ink-3); }
 
 /* Demo page */
 #motion { padding: clamp(56px, 7vw, 90px) 0; text-align: center; }

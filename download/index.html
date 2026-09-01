@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download The&rsquo;Salat</title>
+<meta name="description" content="Download The'Salat on the App Store.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f3ea">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#16110a">
+<link rel="icon" href="../assets/icon.png">
+<link rel="apple-touch-icon" href="../assets/icon.png">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<main class="redirect" id="main">
+  <img class="mark" src="../assets/icon.png" alt="" width="88" height="88">
+  <h1 class="serif">The&rsquo;Salat</h1>
+
+  <p class="line" id="line">Taking you to the App&nbsp;Store.</p>
+
+  <!-- ================================================================
+       THE APP STORE LINK. This href is the only one on the whole site.
+       Everything else, including the badge in the hero, points at this
+       page. Replace the URL below with the real listing URL and the
+       whole site is correct.
+
+         https://apps.apple.com/app/id0000000000
+                                      ^^^^^^^^^^
+       While the id is still all zeros this page knows the link is not
+       ready, so it stays put and says so instead of sending anyone to
+       a broken App Store page. The moment you paste a real id it
+       redirects on its own.
+       ================================================================ -->
+  <p><a class="btn" id="go" href="https://apps.apple.com/app/id0000000000">Open the App&nbsp;Store <svg class="chev" viewBox="0 0 16 16" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5L10.5 8 6 12.5"/></svg></a></p>
+
+  <p class="back"><a href="../">Back to The&rsquo;Salat</a></p>
+</main>
+
+<script>
+(function () {
+  var go = document.getElementById("go");
+  var line = document.getElementById("line");
+  var url = go.getAttribute("href");
+
+  // The placeholder id, and nothing else, is what marks the link unset.
+  if (url.indexOf("id0000000000") === -1) {
+    location.replace(url);
+    return;
+  }
+
+  document.title = "The’Salat is on its way";
+  line.textContent = "The App Store link is being set up. It will be here shortly, in sha’ Allah.";
+  go.setAttribute("aria-disabled", "true");
+  go.classList.add("is-waiting");
+  go.addEventListener("click", function (e) { e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
